@@ -1,7 +1,7 @@
-# Node Test Application
+# NodeTest Application
 ### Run the app locally
 
-- `npm install`
+- `npm install` - This will install all dependencies required to run the application as per package.json.
 - `npm start` - This will start the application and run on port 3000
 - `npm run dev` - This will start the application in development mode
 - `npm test` - This will run the unit tests along with the code coverage report
