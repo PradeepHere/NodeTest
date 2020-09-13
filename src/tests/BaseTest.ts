@@ -1,5 +1,5 @@
 import * as chai from 'chai';
-import * as chaiHttp from 'chai-http';
+import chaiHttp = require('../../node_modules/chai-http');
 import { Application } from 'express';
 import * as express from 'express';
 import Server from '../index'

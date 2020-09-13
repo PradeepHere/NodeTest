@@ -2,7 +2,7 @@ export class RequestBody {
     public data: string;
 
     constructor(data) {
-        this.data = data;
+        this.data = data.toString();
     }
 }
 

@@ -7,7 +7,7 @@ export default class ParseController {
 
     getV1ParsedValue(req: Request, res: Response) {
         try {
-            let data = new RequestBody(req.body.data).data;
+            let data = new RequestBody(req.body.data || null).data;
             let arr = (data || '').split('0').filter(ele => { return ele && ele != '' });
             for (let index = 0; index < arr.length; index++) {
                 let start = data.indexOf(arr[index]);
@@ -17,13 +17,13 @@ export default class ParseController {
             res.json(new ResponseBody(arr))
         }
         catch (err) {
-            apiErrorHandler(err, req, res, 'Parsing failed.');
+            apiErrorHandler(err, req, res, 'V1 Parsing failed.');
         }
     }
 
     getV2ParsedValue(req: Request, res: Response) {
         try {
-            let data = new RequestBody(req.body.data).data;
+            let data = new RequestBody(req.body.data || null).data;
             let arr = (data || '').split('0').filter(ele => { return ele && ele != '' })
             if (arr.length > 2) {
                 arr[2] = arr[2].substring(0, 3) + '-' + arr[2].substring(3, arr[2].length);
@@ -31,7 +31,7 @@ export default class ParseController {
             res.json(new ResponseBody(arr))
         }
         catch (err) {
-            apiErrorHandler(err, req, res, 'Parsing failed.');
+            apiErrorHandler(err, req, res, 'V2 Parsing failed.');
         }
     }
 }

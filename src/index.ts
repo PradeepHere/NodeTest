@@ -3,6 +3,7 @@ import { Application } from 'express';
 import Routes from "./routes";
 import * as bodyParser from "body-parser";
 import * as http from 'http';
+import debug = require("debug");
 
 class Server {
   private server: any;
@@ -20,10 +21,6 @@ class Server {
     app.use(bodyParser.json());
     this.server = http.createServer(app);
     this.server.listen(3000);
-    this.server.on('listening', () => {
-      let address = this.server.address();
-      let bind = (typeof address === 'string') ? `pipe ${address}` : `port ${address.port}`;
-    });
   }
 }
 
