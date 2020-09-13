@@ -9,7 +9,7 @@ describe('/POST Test Node Test Application parse logic', () => {
     };
 
     it('it should call v1/parse', (done) => {
-        test.chai.request('http://127.0.0.1:3000')
+        test.chai.request(test.server)
             .post(`/api/v1/parse`)
             .send(requestBody)
             .end((err, res) => {
@@ -26,7 +26,7 @@ describe('/POST Test Node Test Application parse logic', () => {
     });
 
     it('it should call v2/parse', (done) => {
-        test.chai.request('http://127.0.0.1:3000')
+        test.chai.request(test.server)
             .post(`/api/v2/parse`)
             .send(requestBody)
             .end((err, res) => {
